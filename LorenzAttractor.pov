@@ -25,7 +25,7 @@
         sphere {
             <x1,y1,z1>, R
             pigment { 
-                rgb <1,1,1>
+                rgb <(Count/Iter),(Count/Iter)*0.25,(Count/Iter)*0.25>
             }
             finish{
                 diffuse 0.7
@@ -43,6 +43,35 @@
 		#local y0=y1;
 		#local z0=z1;
 	#end
+#end  
+
+
+
+#macro LorenzPoint(a, b, c, dT, Iter, x0, y0, z0, R)
+    #local Count=0;
+	#while (Count<Iter)
+		#local x1=x0+dT*a*(y0-x0);
+		#local y1=y0+dT*(x0*(b-z0)-y0);
+		#local z1=z0+dT*(x0*y0-c*z0);
+		#local Count=Count+1;
+		#local x0=x1;
+		#local y0=y1;
+		#local z0=z1;
+	#end        
+    sphere {
+        <x1,y1,z1>, R
+        pigment { 
+            rgb <0.9,0.3,0.3>
+        }
+        finish{
+            diffuse 0.1
+            ambient 0.99
+            specular 0.3
+            reflection { 
+                0.9  metallic 
+            } 
+        }
+    }     
 #end        
 
 
@@ -74,3 +103,4 @@ plane {
 
 
 Lorenz(10, 28, 8/3, 0.00025, 400000, 0.0001, 0.0001, 0.0001, 0.035)
+LorenzPoint(10, 28, 8/3, 0.00025, (400000)+2, 0.0001, 0.0001, 0.0001, 0.75)
