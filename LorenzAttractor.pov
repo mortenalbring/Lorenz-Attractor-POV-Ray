@@ -22,20 +22,39 @@
 		#local y1=y0+dT*(x0*(b-z0)-y0);
         #local z1=z0+dT*(x0*y0-c*z0);		
 
-        sphere {
-            <x1,y1,z1>, R
-            pigment { 
-                rgb <(Count/Iter),(Count/Iter)*0.25,(Count/Iter)*0.25>
+        
+        #if(Count < (Iter - 1500))	
+            //For the last 1500 points, we want the spheres to have a slightly different colour to produce a 'trace'
+    		sphere {
+    		    <x1,y1,z1>, R
+                pigment { 
+                    rgb <1.0-(Count/Iter)*0.1,0.9-(Count/Iter)*0.5,0.8-(Count/Iter)*0.9>
+                }
+                finish { 
+                    diffuse 0.7
+                    ambient 0.9
+                    specular 0.5
+                    reflection { 
+                        0.9  metallic 
+                    } 
+                }
             }
-            finish{
-                diffuse 0.7
-                ambient 0.9
-                specular 0.3
-                reflection { 
-                    0.8  metallic 
-                } 
+        #else
+            sphere {
+                <x1,y1,z1>, R
+                pigment { 
+                    rgb <(Count/Iter),(Count/Iter)*0.25,(Count/Iter)*0.25>
+                }
+                finish{
+                    diffuse 0.7
+                    ambient 0.9
+                    specular 0.3
+                    reflection { 
+                        0.8  metallic 
+                    } 
+                }
             }
-        }                                             
+        #end                                             
                        
 				
 		#local Count=Count+1;
