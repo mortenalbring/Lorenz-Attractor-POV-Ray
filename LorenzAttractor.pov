@@ -115,14 +115,14 @@ camera {
 
 
 plane { y, -25
-		pigment { checker rgb <0.1, 0.1, 0.1> rgb <0.9, 0.9, 1.0> scale 5 }
+		pigment { checker rgb <0.1, 0.1, 0.1> rgb <1.0, 1.0, 1.0> scale 5 }
 		finish { reflection 0.2 ambient 0.4 }
 	}
 
 	fog {
-		distance 200
+		distance 100
 		color rgb 0.9
-		fog_offset 10
+		fog_offset 2
 		fog_alt 5
 		fog_type 2
 	}
@@ -144,5 +144,5 @@ sky_sphere {
 		}
 	} 
 
-Lorenz(10, 28, 8/3, 0.00025, 400000*clock, 0.0001, 0.0001, 0.0001, 0.1)
-LorenzPoint(10, 28, 8/3, 0.00025, (400000*clock)+2, 0.0001, 0.0001, 0.0001, 0.75)
+Lorenz(10, 28, 8/3, 0.00022, 400000*clock, 0.0001, 0.0001, 0.0001, 0.1)
+LorenzPoint(10, 28, 8/3, 0.00022, (400000*clock)+2, 0.0001, 0.0001, 0.0001, 0.75)
