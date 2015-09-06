@@ -28,11 +28,11 @@
     		sphere {
     		    <x1,y1,z1>, R
                 pigment { 
-                    rgb <1.0-(Count/Iter)*0.1,0.9-(Count/Iter)*0.5,0.8-(Count/Iter)*0.9>
+                    rgb <0.9-(Count/Iter)*0.7,0.6,0.2+(Count/Iter)*0.7>
                 }
                 finish { 
                     diffuse 0.7
-                    ambient 0.9
+                    ambient 0.3 
                     specular 0.5
                     reflection { 
                         0.9  metallic 
@@ -113,13 +113,36 @@ camera {
 }
 
 
-plane {
-  y, 
-  -30.0 
-  hollow on 
-  pigment { rgb 1 }
-} 
 
+plane { y, -25
+		pigment { checker rgb <0.1, 0.1, 0.1> rgb <1.0, 1.0, 1.0> scale 5 }
+		finish { reflection 0.2 ambient 0.4 }
+	}
 
-Lorenz(10, 28, 8/3, 0.00025, 400000*clock, 0.0001, 0.0001, 0.0001, 0.035)
-LorenzPoint(10, 28, 8/3, 0.00025, (400000*clock)+2, 0.0001, 0.0001, 0.0001, 0.75)
+	fog {
+		distance 100
+		color rgb 0.9
+		fog_offset 2
+		fog_alt 5
+		fog_type 2
+	}
+
+sky_sphere {
+		pigment { gradient y
+			color_map {
+				[0 rgb <0.5, 0.6, 1> ]
+				[1 rgb <0, 0, 1> ]
+			}
+		}
+		pigment { wrinkles turbulence 0.7
+			color_map {
+				[0 rgbt <1,1,1,1>]
+				[0.5 rgbt <0.98, 0.99, 0.99, .6>]
+				[1 rgbt <1, 1, 1, 1>]
+			}
+			scale <.8, .1, .8>
+		}
+	} 
+
+Lorenz(10, 28, 8/3, 0.00022, 400000*clock, 0.0001, 0.0001, 0.0001, 0.1)
+LorenzPoint(10, 28, 8/3, 0.00022, (400000*clock)+2, 0.0001, 0.0001, 0.0001, 0.75)
