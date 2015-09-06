@@ -21,4 +21,8 @@ c is the ratio of the width to height of the box
 Commonly used constants are a = 10, b = 28 and c = 8/3.
 
 This repository contains the POV-Ray code for rendering the Lorenz attractor, and producing an animation of the attractor building up over time to show the chaotic behaviour.
+
+
 A video of the rendered animation can be found here: https://www.youtube.com/watch?v=6y7HPqlL3J4
+
+![gif of Lorenz animation](![http://i.imgur.com/yGYRkQ1.gifv])
