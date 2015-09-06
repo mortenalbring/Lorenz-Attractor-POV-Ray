@@ -25,4 +25,4 @@ This repository contains the POV-Ray code for rendering the Lorenz attractor, an
 
 A video of the rendered animation can be found here: https://www.youtube.com/watch?v=6y7HPqlL3J4
 
-![gif of Lorenz animation](![http://i.imgur.com/yGYRkQ1.gifv])
+![gif of Lorenz animation](![http://i.imgur.com/yGYRkQ1.gif])
