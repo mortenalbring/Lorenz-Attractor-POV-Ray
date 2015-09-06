@@ -25,6 +25,6 @@ This repository contains the POV-Ray code for rendering the Lorenz attractor, an
 
 A video of the rendered animation can be found here (the video has a much slower, smoother framerate than the gif below):
 
-https://www.youtube.com/watch?v=6y7HPqlL3J4
+https://www.youtube.com/watch?v=SBTiyolNGfw
 
 ![gif of Lorenz animation](LorenzAttractorGif.gif)
